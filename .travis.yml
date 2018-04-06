@@ -1,4 +1,5 @@
-deploy: npm
+deploy:
+  provider: npm
   email: "linus4123@gmail.com"
   api_key: $NPM_TOKEN
   on:
