@@ -1,7 +1,9 @@
 import getVersion from '../getVersion';
+import toDictionary from '../toDictionary';
 
 const tools = {
     getVersion,
+    toDictionary,
 };
 
 
