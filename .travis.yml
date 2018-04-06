@@ -1,3 +1,7 @@
+deploy: npm
+  email: "linus4123@gmail.com"
+  api_key: $NPM_TOKEN
+  branch: "develop"
 language: node_js
 node_js:
  - "node"
