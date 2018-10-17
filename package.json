@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "mocha --require babel-core/register",
+    "test:watch": "npm test -- --watch",
     "babel": "babel --presets es2015 src/**/*.js -o main.js",
     "webpack": "webpack --mode production",
     "watch": "webpack --watch --mode development",
