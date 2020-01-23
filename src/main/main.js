@@ -8,8 +8,6 @@ const tools = {
     sortByProperty,
 };
 
-export getVersion;
-
 
 // TODO provide named exports
 export default tools; // Export tools as default export
