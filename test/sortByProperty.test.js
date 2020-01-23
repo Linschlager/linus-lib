@@ -1,39 +1,40 @@
 import sortByProperty from '../src/sortByProperty';
+import { IllegalArgumentError, RequiredArgumentNotGivenError } from "../shared/consts";
 
 describe('#sortByProperty()', () => {
   it ('should not crash with no parameters provided', () => {
-    sortByProperty();
+    expect(() => sortByProperty()).not.toThrowError(RequiredArgumentNotGivenError);
   });
 
   it ('should not crash with invalid parameters provided', () => {
-      const invalidInput = {
-          foo: 'bar'
-      };
-      sortByProperty(invalidInput);
+    const invalidInput = {
+      foo: 'bar'
+    };
+    expect(() => sortByProperty(invalidInput)).not.toThrowError(IllegalArgumentError);
   });
 
   it ('should correctly sort an array', () => {
-      const input = [
-        {
-          name: 'foo',
-          value: 'bar',
-        },
-        {
-          name: 'family',
-          value: 'testing'
-        }
-      ];
-      const output = [
-        {
-          name: 'family',
-          value: 'testing'
-        },
-        {
-          name: 'foo',
-          value: 'bar',
-        }
-      ];
-      expect(sortByProperty(input, ['name'])).toEqual(output);
+    const input = [
+      {
+        name: 'foo',
+        value: 'bar',
+      },
+      {
+        name: 'family',
+        value: 'testing'
+      }
+    ];
+    const output = [
+      {
+        name: 'family',
+        value: 'testing'
+      },
+      {
+        name: 'foo',
+        value: 'bar',
+      }
+    ];
+    expect(sortByProperty(input, ['name'])).toEqual(output);
   });
 
   it ('should correctly prioritize properties earlier in the given array', () => {
