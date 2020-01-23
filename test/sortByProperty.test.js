@@ -1,4 +1,3 @@
-import assert from 'assert';
 import sortByProperty from '../src/sortByProperty';
 
 describe('#sortByProperty()', () => {
@@ -34,7 +33,7 @@ describe('#sortByProperty()', () => {
           value: 'bar',
         }
       ];
-      assert.deepEqual(sortByProperty(input, ['name']), output);
+      expect(sortByProperty(input, ['name'])).toEqual(output);
   });
 
   it ('should correctly prioritize properties earlier in the given array', () => {
@@ -72,7 +71,7 @@ describe('#sortByProperty()', () => {
         label: 'ghi',
       }
     ];
-    assert.deepEqual(sortByProperty(input, ['name', 'label', 'value']), output);
+    expect(sortByProperty(input, ['name', 'label', 'value'])).toEqual(output);
   });
 
   it ('should invert the sorting if `asc` is false', () => {
@@ -104,7 +103,7 @@ describe('#sortByProperty()', () => {
         value: 'testing'
       }
     ];
-    assert.deepEqual(sortByProperty(input, ['name'], false), output);
+    expect(sortByProperty(input, ['name'], false)).toEqual(output);
   });
 
   it ('should invert the sorting if `asc` is false after everything else is done', () => {
@@ -142,7 +141,7 @@ describe('#sortByProperty()', () => {
         label: 'abc',
       },
     ];
-    assert.deepEqual(sortByProperty(input, ['name', 'label', 'value'], false), output);
+    expect(sortByProperty(input, ['name', 'label', 'value'], false)).toEqual(output);
   });
 
   it ('should be able to compare arrays as values', () => {
@@ -190,6 +189,6 @@ describe('#sortByProperty()', () => {
         value: ['value', 'two'],
       },
     ];
-    assert.deepEqual(sortByProperty(input, ['name', 'value']), output);
+    expect(sortByProperty(input, ['name', 'value'])).toEqual(output);
   });
 });

@@ -1,16 +1,15 @@
-import assert from 'assert';
 import toDictionary from '../src/toDictionary';
 
 describe('#toDictionary()', () => {
     it ('should not crash with no parameters provided', () => {
-        toDictionary();
+        expect(() => toDictionary()).not.toThrowError();
     });
 
     it ('should not crash with invalid parameters provided', () => {
         const invalidInput = {
             foo: 'bar'
         };
-        toDictionary(invalidInput);
+        expect(() => toDictionary(invalidInput)).not.toThrowError();
     });
 
     it ('should parse an array to a dictionary using default names', () => {
@@ -28,7 +27,7 @@ describe('#toDictionary()', () => {
             foo: 'bar',
             family: 'testing'
         };
-        assert.deepEqual(toDictionary(input), output);
+        expect(toDictionary(input)).toEqual(output);
     });
 
     it ('should parse an array to a dictionary using custom property names', () => {
@@ -46,6 +45,6 @@ describe('#toDictionary()', () => {
             foo: 'bar',
             family: 'testing'
         };
-        assert.deepEqual(toDictionary(input, 'key', 'val'), output);
+        expect(toDictionary(input, 'key', 'val')).toEqual(output);
     });
 });

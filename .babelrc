@@ -1,3 +1,9 @@
 {
-  "presets": ["env", "stage-0"]
+  "presets": [
+    "@babel/preset-env"
+  ],
+  "plugins": [
+    "@babel/plugin-syntax-optional-chaining",
+    [ "@babel/plugin-syntax-pipeline-operator", { "proposal": "smart" } ]
+  ]
 }
