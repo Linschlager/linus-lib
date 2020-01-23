@@ -1,15 +1,20 @@
 import toDictionary from '../src/toDictionary';
+import {
+  ArrayDoesNotHaveRequiredPropertyError,
+  IllegalArgumentError,
+  RequiredArgumentNotGivenError
+} from "../shared/consts";
 
 describe('#toDictionary()', () => {
   it ('should throw exception with no parameters provided', () => {
-    expect(() => toDictionary()).toThrowError('required');
+    expect(() => toDictionary()).toThrowError(RequiredArgumentNotGivenError);
   });
 
   it ('should throw exception with invalid parameters provided', () => {
     const invalidInput = {
       foo: 'bar'
     };
-    expect(() => toDictionary(invalidInput)).toThrowError('Invalid');
+    expect(() => toDictionary(invalidInput)).toThrowError(IllegalArgumentError);
   });
 
   it ('should throw exception with incompatible array provided', () => {
@@ -17,13 +22,13 @@ describe('#toDictionary()', () => {
       { key: 'foo', value: 'bar' },
       { key: 'fizz', val: 'bazz'}
     ];
-    expect(() => toDictionary(incompatibleArray_InvalidValueProperty)).toThrowError('does not have');
+    expect(() => toDictionary(incompatibleArray_InvalidValueProperty)).toThrowError(ArrayDoesNotHaveRequiredPropertyError);
 
     const incompatibleArray_invalidKeyProperty = [
       { key: 'fizz', value: 'bar' },
       { k: 'buzz', value: 'fizz' }
     ];
-    expect(() => toDictionary(incompatibleArray_invalidKeyProperty)).toThrowError('does not have');
+    expect(() => toDictionary(incompatibleArray_invalidKeyProperty)).toThrowError(ArrayDoesNotHaveRequiredPropertyError);
   });
 
   it('should work with an empty array', () => {
