@@ -1,7 +1,8 @@
 deploy:
   provider: npm
+  edge: true
   email: "linus4123@gmail.com"
-  api_key: $NPM_TOKEN
+  token: $NPM_TOKEN
   on:
     branch: develop
 language: node_js
