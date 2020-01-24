@@ -3,14 +3,15 @@ import { IllegalArgumentError, RequiredArgumentNotGivenError } from "../shared/c
 
 describe('#sortByProperty()', () => {
   it ('should not crash with no parameters provided', () => {
-    expect(() => sortByProperty()).not.toThrowError(RequiredArgumentNotGivenError);
+    expect(() => sortByProperty()).toThrowError(RequiredArgumentNotGivenError);
   });
 
   it ('should not crash with invalid parameters provided', () => {
     const invalidInput = {
       foo: 'bar'
     };
-    expect(() => sortByProperty(invalidInput)).not.toThrowError(IllegalArgumentError);
+    expect(() => sortByProperty(invalidInput)).toThrowError(RequiredArgumentNotGivenError);
+    expect(() => sortByProperty(invalidInput, [])).toThrowError(IllegalArgumentError);
   });
 
   it ('should correctly sort an array', () => {

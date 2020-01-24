@@ -24,7 +24,7 @@ export default function sortByProperty(toSort, priority, asc = true) {
     throw new IllegalArgumentError('toSort', 'array');
   }
   // Check if every element in the array has the required property `priority`
-  if (!toSort.every(item => item.hasOwnProperty(priority))) {
+  if (!priority.every(property => toSort.every(item => item.hasOwnProperty(property)))) {
     throw new ArrayDoesNotHaveRequiredPropertyError('toSort', [priority]);
   }
   return toSort.sort(sorting(priority, asc));
